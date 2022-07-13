@@ -8,6 +8,8 @@ var mongoose = require("mongoose");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var todoRouter = require('./routes/todos');
+
 const passport = require('passport');
 require("./passport.js");
 
@@ -28,6 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/private', passport.authenticate('jwt', {session: false}), indexRouter);
+app.use('/api/todos', passport.authenticate('jwt', {session: false}), todoRouter);
 app.use('/api/user', usersRouter);
 
 module.exports = app;

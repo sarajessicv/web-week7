@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const { body, validationResult } = require("express-validator");
 const User = require("../models/Users");
 const jwt = require("jsonwebtoken");
-//const validateToken = require("../auth/validateToken.js")
 
 
 router.post('/register',
