@@ -4,15 +4,8 @@ var router = express.Router();
 
 
 router.get('/', (req, res, next) =>{
-  console.log("päästäänkö tänne");
-  Users.findOne({email: req.body.email}, (err, user) => {
-    if (err) throw err;
-    if (!user) {
-      return res.status(401).json({ message: "Authentication failed :(" });
-    } else {
-      res.json({'email': req.body.email});
+      res.json({'email': req.user.email});
     }
-  })
-});
+);
 
 module.exports = router;
