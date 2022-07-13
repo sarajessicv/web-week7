@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 
 router.post('/register',
   body("email").isLength({ min: 3 }).trim().escape(),
-  body("password").isLength({ min: 5 }),
+  body("password").isLength({ min: 8 }).isStrongPassword(),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
