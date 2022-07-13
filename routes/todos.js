@@ -13,6 +13,7 @@ router.post('/', (req, res, next) =>{
           (req.body.items).forEach(item => {
             user.items.push(item);
           });
+          user.save();
         } else {
             Todo.create(
                 {
