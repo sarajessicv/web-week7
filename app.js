@@ -9,6 +9,7 @@ var mongoose = require("mongoose");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const passport = require('passport');
+require("./passport.js");
 
 var app = express();
 
@@ -30,3 +31,4 @@ app.use('/api/private', passport.authenticate('jwt', {session: false}), indexRou
 app.use('/api/user', usersRouter);
 
 module.exports = app;
+

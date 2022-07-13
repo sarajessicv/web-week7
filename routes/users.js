@@ -64,9 +64,7 @@ router.post('/login',
             jwt.sign(
               jwtPayload,
               process.env.SECRET,
-              {
-                expiresIn: 120
-              },
+              
               (err, token) => {
                 if(token){
                 res.json({ "success": true, 'token': token})};

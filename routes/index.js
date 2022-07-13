@@ -4,6 +4,7 @@ var router = express.Router();
 
 
 router.get('/', (req, res, next) =>{
+  console.log("päästäänkö tänne");
   Users.findOne({email: req.body.email}, (err, user) => {
     if (err) throw err;
     if (!user) {
