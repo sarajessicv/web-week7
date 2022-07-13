@@ -3,7 +3,7 @@ const Users = require('../models/Users');
 var router = express.Router();
 
 
-router.get('/private', (req, res, next) =>{
+router.get('/', (req, res, next) =>{
   Users.findOne({email: req.body.email}, (err, user) => {
     if (err) throw err;
     if (!user) {
