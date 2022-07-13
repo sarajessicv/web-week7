@@ -6,8 +6,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose");
 
-var JwtStrategy = require('passport-jwt').Strategy;
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const passport = require('passport');
