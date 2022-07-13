@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 router.post('/', (req, res, next) =>{
-    Todo.findOne({ user: req.user.email }, (err, user) => {
+    Todo.findOne({ user: req.user._id}, (err, user) => {
         if (err) {
           console.log(err);
           throw err
@@ -16,7 +16,7 @@ router.post('/', (req, res, next) =>{
         } else {
             Todo.create(
                 {
-                    user: req.user.email,
+                    user: req.user._id,
                     items: req.body.items
                 },
                 (err, ok) => {
